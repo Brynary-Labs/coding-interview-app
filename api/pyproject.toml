@@ -13,3 +13,6 @@ dependencies = [
 dev = [
     "ruff>=0.15.16",
 ]
+
+[tool.ruff]
+line-length = 100
