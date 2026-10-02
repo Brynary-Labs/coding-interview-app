@@ -1,21 +1,19 @@
 {
-  "name": "Coding Interview Prep",
+  "name": "coding-interview-app",
+  "author": "Brynary",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "setup": "pnpm install && (cd web && pnpm install) && (cd api && uv sync)",
-    "dev": "concurrently -n web,api -c yellow,blue \"cd web && pnpm dev\" \"cd api && uv run uvicorn app.main:app --reload\"",
+    "dev": "concurrently -n web,api -c yellow,blue \"cd web && pnpm dev --port 10001\" \"cd api && uv run uvicorn app.main:app --port 20001 --reload\"",
     "build": "cd web && pnpm build",
-    "start": "concurrently -n web,api -c yellow,blue \"cd web && pnpm preview\" \"cd api && uv run uvicorn app.main:app\"",
+    "start": "concurrently -n web,api -c yellow,blue \"cd web && pnpm preview --port 10001\" \"cd api && uv run uvicorn app.main:app --port 20001\"",
     "preview": "pnpm start",
     "format:read": "(cd web && pnpm exec prettier --check .) && (cd api && uv run ruff format --check .)",
     "format:write": "(cd web && pnpm exec prettier --write .) && (cd api && uv run ruff format .)",
     "lint:read": "(cd web && pnpm run lint) && (cd api && uv run ruff check .)",
     "lint:write": "(cd web && pnpm exec eslint --fix .) && (cd api && uv run ruff check --fix .)"
   },
-  "author": "Brynary",
-  "packageManager": "pnpm@10.27.0",
   "devDependencies": {
     "concurrently": "^10.0.3"
   }

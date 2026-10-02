@@ -1,5 +1,6 @@
 {
-  "name": "Coding Interview Prep WEB",
+  "name": "coding-interview-app-web",
+  "author": "Brynary",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
